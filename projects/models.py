@@ -8,7 +8,7 @@ from users.models import CustomUserModel
 class Projects(models.Model):
     user = models.ForeignKey(CustomUserModel, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=250, null=False, blank= False)
-    name = models.TextField(null=True, blank= True)
+    description = models.TextField(null=True, blank= True)
 
 class Applications(models.Model):
     project = models.ForeignKey(Projects,on_delete=SET_NULL,null=True)
