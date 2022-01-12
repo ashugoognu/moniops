@@ -103,6 +103,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/'
+
+# custom model
+AUTH_USER_MODEL = 'users.CustomUserModel'
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -130,7 +135,6 @@ STATIC_URL = '/static/'
 #STATIC_ROOT = ''
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_ABS_URL = "https://www.ap2v.com/media/"
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
