@@ -5,7 +5,7 @@ from django.contrib import admin
 from . models import Projects,Applications
 
 class ProjectsAdmin(admin.ModelAdmin):
-    list_display = ['id','name']
+    list_display = ['id','name','user']
 admin.site.register(Projects,ProjectsAdmin)
 
 class Applicationsadmin(admin.ModelAdmin):
