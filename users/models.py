@@ -7,6 +7,7 @@ from django.utils.translation import gettext_lazy as _
 class CustomUserModel(AbstractUser):
     USER_TYPE = (
         ('admin','Admin'),
+        ('customer','Customer'),
     )
     exist_employee = models.BooleanField(default=True)
     mobile = models.CharField(max_length=12,blank=True)

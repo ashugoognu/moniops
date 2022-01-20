@@ -3,7 +3,7 @@ from django.db.models.deletion import SET_NULL
 from django.db.models.fields.related import ForeignKey
 from users.models import CustomUserModel
 
-from healtcheck.task import *
+# from healthcheck.task import *
 
 # Create your models here.
 
@@ -20,9 +20,3 @@ class Applications(models.Model):
     name = models.CharField(max_length=250, null=True, blank=True)
     url = models.CharField(max_length=250, null=True, blank=True)
     frequency = models.IntegerField(default=1)
-    
-    def save(self):
-        print("----------------------------Saveing Application----------------------------------")
-        celfir.delay(2)
-        print("-----------------Celery TAsk Called ---------------------")
-        super(Applications, self).save()
