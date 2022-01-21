@@ -124,6 +124,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+MAX_ATTEMPTS = 1
+MAX_RUN_TIME = 120
+BACKGROUND_TASK_RUN_ASYNC = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
