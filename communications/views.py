@@ -50,4 +50,25 @@ class CallApi():
                 
         return "Empty Email Function...."
         
-        
+
+
+
+
+# import sys
+
+# sys.path.append(".")
+
+# from APIClass import CallApi as Communication
+
+# from_number = "NUmber"
+# to_number = ['To Number']
+# url = 'https://s3.amazonaws.com/plivosamplexml/speak_url.xml'
+# message = "Text Message"
+
+# obj1 = Communication(from_number, to_number, url, message)
+# responce = obj1.voice_call()
+# print(responce)
+
+# print("---------------")
+# responce = obj1.sms_api()
+# print(responce)
