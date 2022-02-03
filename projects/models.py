@@ -7,10 +7,27 @@ from users.models import CustomUserModel
 
 # Create your models here.
 
+class NotificationSubscriber(models.Model):
+    user = models.ForeignKey(CustomUserModel, on_delete=models.SET_NULL, null=True)
+    email = models.BooleanField(default=False)
+    sms = models.BooleanField(default=False)
+    call = models.BooleanField(default=False)
+
+    def __str__(self):
+        return "{0}-(Email: {1}, SMS: {2}, Call: {3})".format(self.user.first_name,str(self.email),str(self.sms),str(self.call))
+
+class NotificationGroup(models.Model):
+    group_name = models.CharField(max_length=250, null=True, blank=True, default=None)
+    group = models.ManyToManyField(NotificationSubscriber)
+
+    def __str__(self):
+        return self.group_name
+
 class Projects(models.Model):
     user = models.ForeignKey(CustomUserModel, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=250, null=False, blank= False)
     description = models.TextField(null=True, blank= True)
+    notification_group = models.ForeignKey(NotificationGroup,null=True, blank=False, default=None,on_delete=SET_NULL)
 
     def __str__(self):
         return "{0} - ({1})".format(self.name, self.user)
@@ -20,3 +37,4 @@ class Applications(models.Model):
     name = models.CharField(max_length=250, null=True, blank=True)
     url = models.CharField(max_length=250, null=True, blank=True)
     frequency = models.IntegerField(default=1)
+
