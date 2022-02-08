@@ -13,7 +13,7 @@ class Applicationsadmin(admin.ModelAdmin):
 admin.site.register(Applications,Applicationsadmin)
 
 class NotificationSubscriberAdmin(admin.ModelAdmin):
-    list_display = ['id','user','email','sms','call']
+    list_display = ['id','subscriber_name','subscriber_email','subscriber_mobile','email','sms','call']
 admin.site.register(NotificationSubscriber,NotificationSubscriberAdmin)
 
 class NotificationGroupAdmin(admin.ModelAdmin):

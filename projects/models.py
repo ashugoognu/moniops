@@ -8,16 +8,19 @@ from users.models import CustomUserModel
 # Create your models here.
 
 class NotificationSubscriber(models.Model):
-    user = models.ForeignKey(CustomUserModel, on_delete=models.SET_NULL, null=True)
-    email = models.BooleanField(default=False)
-    sms = models.BooleanField(default=False)
-    call = models.BooleanField(default=False)
+    # user = models.ForeignKey(CustomUserModel, on_delete=models.SET_NULL, null=True)
+    subscriber_name = models.CharField(max_length=250, null=False, blank=False, default=None)
+    subscriber_mobile =  models.CharField(max_length=250, null=False, blank=False, default=None)
+    subscriber_email =  models.CharField(max_length=250, null=False, blank=False, default=None)
+    email = models.BooleanField(default=False,help_text="Check if you want to send alert on Email.")
+    sms = models.BooleanField(default=False,help_text="Check if you want to send alert on SMS.")
+    call = models.BooleanField(default=False,help_text="Check if you want to send alert on Call.")
 
     def __str__(self):
-        return "{0}-(Email: {1}, SMS: {2}, Call: {3})".format(self.user.first_name,str(self.email),str(self.sms),str(self.call))
+        return "{0}-(Email: {1}, SMS: {2}, Call: {3})".format(self.subscriber_name,str(self.email),str(self.sms),str(self.call))
 
 class NotificationGroup(models.Model):
-    group_name = models.CharField(max_length=250, null=True, blank=True, default=None)
+    group_name = models.CharField(max_length=250, null=False, blank=False, default=None)
     group = models.ManyToManyField(NotificationSubscriber)
 
     def __str__(self):
